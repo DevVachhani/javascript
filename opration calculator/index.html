@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>CALCULATOR</h2>
+
+    <div class="calculator">
+      <input type="text" id="display" />
+      <table>
+        <tr>
+          <td><button onclick="appendValue('7')">7</button></td>
+          <td><button onclick="appendValue('8')">8</button></td>
+          <td><button onclick="appendValue('9')">9</button></td>
+          <td><button onclick="appendValue('/')">/</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="appendValue('4')">4</button></td>
+          <td><button onclick="appendValue('5')">5</button></td>
+          <td><button onclick="appendValue('6')">6</button></td>
+          <td><button onclick="appendValue('*')">*</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="appendValue('1')">1</button></td>
+          <td><button onclick="appendValue('2')">2</button></td>
+          <td><button onclick="appendValue('3')">3</button></td>
+          <td><button onclick="appendValue('-')">-</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="appendValue('0')">0</button></td>
+          <td><button onclick="appendValue('.')">.</button></td>
+          <td><button onclick="calculate()">=</button></td>
+          <td><button onclick="appendValue('+')">+</button></td>
+        </tr>
+      </table>
+      <button onclick="clearDisplay()">Clear</button>
+    </div>
+    <div>
+      <h3 class="descriptions"></h3>
+      <h3 class="sqnum"></h3>
+      <h3 class="primecheck"></h3>
+    </div>
+    <div class="digree">
+      <input type="number" id="inFe" placeholder="in Fernhit" />
+      <button onclick="convert()">Convert</button>
+      <input type="number" id="inCec" placeholder="in Celcius" />
+    </div>
+    <div style="margin-top: 20px">
+      <label for="side1"> side 1: </label>
+
+      <input type="number" id="side1" placeholder="side 1" />
+      <br /><br />
+
+      <label for="side2"> side 2: </label>
+
+      <input type="number" id="side2" placeholder="side 2" />
+      <br /><br />
+
+      <label for="side3"> side 3: </label>
+
+      <input type="number" id="side3" placeholder="side 2" />
+      <br /><br />
+
+      <button onclick="Area()">click here</button>
+
+      <p>Area of Triangle: <span id="displayresult"></span></p>
+    </div>
+    <div>
+      <label for="number">Input the number for febonacci series</label>
+      <input type="number" id="numbers" />
+      <input type="button" onclick="Febonaci()" value="click me" />
+      <span id="series"></span>
+      <!-- <button onclick="Febonaci()">
+        To print febonaci serires <span id="displayFseries"></span>
+      </button> -->
+    </div>
+
+    <section>
+      <div>
+        <form id="loginForm" style="margin-top: 20px">
+          <label for="post">Heading of post</label>
+          <br />
+          <input type="text" id="postHeading" /><br />
+          <label for="postDes">Description of post</label>
+          <br />
+          <input type="text" id="postDescription" />
+          <br />
+          <button type="submit" onclick="sumbited()">submit</button>
+        </form>
+        <table style="border: 2px solid black; height: 70px; width: 100px">
+          <tr>
+            <td id="head"></td>
+          </tr>
+          <tr>
+            <td id="desc"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="todo">
+        <table>
+          <h2>TODO APP</h2>
+          <tr>
+            <input type="text" id="inputbox" placeholder="add your text" />
+
+            <input type="text" id="category" placeholder="category" />
+            <button onclick="addItem()">ADD</button>
+          </tr>
+
+          <ul id="itemcontent"></ul>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

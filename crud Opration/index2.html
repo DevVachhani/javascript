@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script2.js"></script>
+  </head>
+  <body>
+    <h2>CRUD OPRATION</h2>
+    <div class="employee-form">
+      <form id="myForm">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" required />
+        <br />
+        <label for="Salary">Salary:</label>
+        <input type="number" id="salaryInput" required />
+
+        <br />
+        <input type="button" value="Submit" onclick="formsubmit()" />
+        <input type="button" id="filter" value="filter" onclick="filterrow()">
+      </form>
+    </div>
+  <div>
+      <table class="list" id="employeeList" style="border-collapse: collapse">
+     
+          <tr>
+            <th style="padding: 8px; border: 1px solid black">Full Name</th>
+            <th style="padding: 8px; border: 1px solid black">Salary</th>
+           
+            <th style="padding: 8px; border: 1px solid black">Actions</th>
+          </tr>
+          <!-- <tr id="trrow"> -->
+            <!-- <th id="namefeild"></th>
+            <th id="salaryfeild"> </th>
+            <th id="spande"></th> -->
+          <!-- </tr> -->
+    
+        <tbody></tbody>
+
+      </table>
+    </div>
+      <div id="pagination" style="display: none;">
+        <div id="prev" onclick="prevhandler()">&laquo;</div>
+        <div id="pagecount">1</div>
+        <div id="next" onclick="handlenext()">&raquo;</div>
+      </div>
+    </div>
+  </body>
+</html>
