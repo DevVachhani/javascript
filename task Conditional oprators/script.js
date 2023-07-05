@@ -8,30 +8,29 @@ function Agecheck() {
 
   if (AgeSelector === "") {
     alert("please input valid num");
+  }
+  if (+AgeSelector >= 21) {
+    status.innerHTML = `User age is ${AgeSelector} so user is eligible to vote :) `;
   } else {
-    if (+AgeSelector >= 21) {
-      status.innerHTML = `User age is ${AgeSelector} so user is eligible to vote :) `;
-    } else {
-      status.innerHTML = `User age is ${AgeSelector} so user is not eligible to vote :( `;
-    }
-    if (AgeSelector % 2 == 0) {
-      console.log("num is even");
-      checknum.innerHTML = `${AgeSelector} is even number `;
-    } else {
-      checknum.innerHTML = `${AgeSelector} is odd number`;
-      console.log("num is odd");
-    }
-    if (+AgeSelector > 35) {
-      marks.innerHTML = `congrats !!! user is passed and user obtain ${AgeSelector} marks`;
-    } else {
-      marks.innerHTML = `sorry !! user is not passed and user obtain ${AgeSelector} marks `;
-    }
+    status.innerHTML = `User age is ${AgeSelector} so user is not eligible to vote :( `;
+  }
+  if (AgeSelector % 2 == 0) {
+    console.log("num is even");
+    checknum.innerHTML = `${AgeSelector} is even number `;
+  } else {
+    checknum.innerHTML = `${AgeSelector} is odd number`;
+    console.log("num is odd");
+  }
+  if (+AgeSelector > 35) {
+    marks.innerHTML = `congrats !!! user is passed and user obtain ${AgeSelector} marks`;
+  } else {
+    marks.innerHTML = `sorry !! user is not passed and user obtain ${AgeSelector} marks `;
+  }
 
-    if (+AgeSelector === 35) {
-      greeting.innerHTML = `Good Morning User You have a greate day :) `;
-    } else {
-      greeting.innerHTML = `oops Your Pin was wrong`;
-    }
+  if (+AgeSelector === 35) {
+    greeting.innerHTML = `Good Morning User You have a greate day :) `;
+  } else {
+    greeting.innerHTML = `oops Your Pin was wrong`;
   }
 }
 
@@ -156,4 +155,25 @@ function calc() {
     default:
       ans.innerHTML = "please enter a valid data.";
   }
+}
+
+function ternaryopration() {
+  const numbers = Number(document.getElementById("ternary").value);
+  const ternaryInput = document.getElementById("ternaryInput");
+  const cbillfeild = document.getElementById("textofCbill");
+  console.log(numbers);
+
+  numbers % 2 == 0
+    ? (ternaryInput.innerHTML = `${numbers} is even.`)
+    : (ternaryInput.innerHTML = `${numbers} is odd.`);
+
+  const usersCbill =
+    numbers > 70
+      ? "Exallent Cbiil Score. user get loan easily"
+      : numbers > 50
+      ? "Average Cbill Score get try to approve loan"
+      : "Lower cbill score and get not approved for loan";
+
+  console.log(usersCbill);
+  cbillfeild.innerHTML = usersCbill;
 }
