@@ -128,3 +128,32 @@ function carSelctor() {
       break;
   }
 }
+
+function calc() {
+  const number1 = Number(document.getElementById("num1").value);
+  const number2 = Number(document.getElementById("num2").value);
+  const oprator = document.getElementById("oprator").value;
+  const ans = document.getElementById("ans");
+  console.log(number1, number2, oprator);
+  let number;
+  switch (oprator) {
+    case "+":
+      number = number1 + number2;
+      ans.innerHTML = number;
+      break;
+    case "-":
+      number = number1 - number2;
+      ans.innerHTML = number;
+      break;
+    case "*":
+      number = number1 * number2;
+      ans.innerHTML = number;
+      break;
+    case "/":
+      number = number1 / number2;
+      ans.innerHTML = number;
+
+    default:
+      ans.innerHTML = "please enter a valid data.";
+  }
+}
