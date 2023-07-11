@@ -1,0 +1,110 @@
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  /* text-align: center; */
+}
+h1 {
+  background-color: rgb(125, 153, 153);
+  text-align: center;
+}
+
+h2 {
+  font-style: italic;
+  /* text-align: center; */
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+}
+
+ul li {
+  margin: 20px;
+  font-size: x-large;
+}
+
+.mainsection {
+  margin: 20px 50px 20px 50px;
+  text-align: center;
+}
+.mainsection input {
+  width: 100px;
+  height: 30px;
+  border-radius: 7px;
+  /* border: none; */
+}
+.mainsection #searchbar {
+  width: 300px;
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+}
+.bitems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-title {
+  margin: 20px;
+  border: 1px solid black;
+  padding: 10px 10px 10px 10px;
+  border-radius: 30px;
+  box-shadow: rgba(61, 61, 58, 0.2) 0px 7px 29px 0px;
+}
+
+.blog-items {
+  min-width: 330px;
+}
+
+.loadItems {
+  width: auto;
+  height: 30px;
+  background-color: darkgrey;
+  border-radius: 10px;
+}
+
+form {
+  font-size: x-large;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+}
+
+form input {
+  width: 400px;
+}
+
+form input button {
+  width: 200px;
+}
+button {
+  width: 100px;
+  height: 30px;
+  margin: 20px;
+}
+
+table {
+  border: 2px;
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+}
+
+td {
+  border: 2px solid black;
+  text-align: center;
+  height: 34px;
+  width: auto;
+}
+
+td label {
+  margin: 50px;
+}

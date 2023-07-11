@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h2 style="text-align: center">FORM IS OPEN</h2>
+    <form>
+      <label for="name">Blog Title:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="description">Blog Description:</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        required
+      /><br /><br />
+
+      <button onclick="saveFormData()">SET DATA</button>
+      <button onclick="getFOrmData()">GET DATA</button>
+    </form>
+
+    <table>
+      <tr>
+        <td>
+          <label for="Title">Title</label>
+        </td>
+        <td>
+          <label for="Title">description</label>
+        </td>
+      </tr>
+      <tr>
+        <td id="nameTitle"></td>
+        <td id="nameDescription"></td>
+      </tr>
+    </table>
+  </body>
+</html>
