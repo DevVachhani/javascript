@@ -18,33 +18,30 @@
 
         <br />
         <input type="button" value="Submit" onclick="formsubmit()" />
-        <input type="button" id="filter" value="filter" onclick="filterrow()">
+        <input type="button" id="filter" value="filter" onclick="filterrow()" />
       </form>
     </div>
-  <div>
+    <div>
       <table class="list" id="employeeList" style="border-collapse: collapse">
-     
-          <tr>
-            <th style="padding: 8px; border: 1px solid black">Full Name</th>
-            <th style="padding: 8px; border: 1px solid black">Salary</th>
-           
-            <th style="padding: 8px; border: 1px solid black">Actions</th>
-          </tr>
-          <!-- <tr id="trrow"> -->
-            <!-- <th id="namefeild"></th>
+        <tr>
+          <th style="padding: 8px; border: 1px solid black">Full Name</th>
+          <th style="padding: 8px; border: 1px solid black">Salary</th>
+
+          <th style="padding: 8px; border: 1px solid black">Actions</th>
+        </tr>
+        <!-- <tr id="trrow"> -->
+        <!-- <th id="namefeild"></th>
             <th id="salaryfeild"> </th>
             <th id="spande"></th> -->
-          <!-- </tr> -->
-    
-        <tbody></tbody>
+        <!-- </tr> -->
 
+        <tbody></tbody>
       </table>
     </div>
-      <div id="pagination" style="display: none;">
-        <div id="prev" onclick="prevhandler()">&laquo;</div>
-        <div id="pagecount">1</div>
-        <div id="next" onclick="handlenext()">&raquo;</div>
-      </div>
+    <div id="pagination" style="display: none">
+      <div id="prev" onclick="prevhandler()">&laquo;</div>
+      <div id="pagecount">1</div>
+      <div id="next" onclick="handlenext()">&raquo;</div>
     </div>
   </body>
 </html>
