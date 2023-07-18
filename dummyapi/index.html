@@ -23,8 +23,31 @@
     </header>
     <div class="mainsection">
       <div class="searchbar">
-        <input id="searchbar" type="text" placeholder="seach blog" />
+        <input
+          class="searchInp"
+          type="search"
+          placeholder="search blog"
+          onchange="handleSearch(event)"
+        />
         <input type="submit" onclick="searchtheblog()" />
+      </div>
+      <div>
+        <div
+          style="
+            display: flex;
+            margin: 20px;
+            font-size: x-large;
+            justify-content: space-evenly;
+            list-style-type: none;
+          "
+        >
+          <li style="border: 2px solid black; padding: 20px 20px 20px 20px">
+            <a onclick="displayloveblogs()">love</a>
+          </li>
+          <li style="border: 2px solid black; padding: 20px 20px 20px 20px">
+            <a onclick="displaycrimeblogs()">crime</a>
+          </li>
+        </div>
       </div>
 
       <div class="blogs">
@@ -37,7 +60,6 @@
           <!-- </div> -->
           <!-- </div> -->
         </div>
-        <div class="bitems"></div>
       </div>
       <div class="load">
         <button class="loadItems" onclick="loadItems()">Load More Items</button>

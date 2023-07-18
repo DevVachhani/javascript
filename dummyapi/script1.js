@@ -17,7 +17,7 @@ function formsubmit() {
   finalData.push(data);
   const datas = toString(data);
   console.log(datas);
-  localStorage.setItem("name", JSON.stringify(data));
+  localStorage.setItem("name", JSON.stringify(finalData));
 
   function showItem() {
     if (document.getElementById("employeeList").rows.length - 1 < 5) {
@@ -116,7 +116,10 @@ function prevhandler() {
 }
 
 function clearFOrmData() {
+  const table = document.getElementById("employeeList");
   localStorage.clear();
+  // table.innerHTML = "";
+  deleteRow(document.getElementById("employeeList"));
   // const namehed = document.getElementById("nameTitle");
 
   // namehed.innerHTML = "";
