@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>My E-Commerce Store</h1>
+      <div class="cartbtn">
+        <button id="cart-button" onclick="openCart()">
+          CART
+          <span id="prodnum">0</span>
+          <i
+            class="fa fa-shopping-cart"
+            style="font-size: 38px; color: red"
+          ></i>
+        </button>
+      </div>
+    </header>
+    <section>
+      <div class="maindiv"></div>
+      <div id="featuercheproducts">
+        <div style="padding: 30px 30px 30px 30px">
+          <h3>Feachred Products</h3>
+          <div class="featureP">
+            <!-- <div class="productsItems">
+            <div><span>${element.id}</span></div>
+            <div><img src="${element.image}" alt="fetcherp1" /></div>
+            <div><p>${element.title}</p></div>
+
+            <div><span>Price:${element.price} $</span></div>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="product-container"></div>
+
+    <div id="cart">
+      <div>
+        <h2>Cart</h2>
+
+        <div class="cartProducts"></div>
+      </div>
+      <ul id="cart-items">
+        <!-- <div class="cartitems">
+          <div class="Items">
+            <div class="itemsDes">
+              <img
+                src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+                alt=""
+              />
+              <p>Title Product</p>
+            </div>
+            <div class="quantity">
+              <button
+                class="plus-btn"
+                onclick="IncreaseNum()"
+                type="button"
+                name="button"
+              >
+                <i class="fa fa-plus" style="font-size: 24px"></i>
+              </button>
+              <input id="inputvalue" type="text" name="name" value="1" />
+              <button
+                class="minus-btn"
+                type="button"
+                onclick="decreaseNum()"
+                name="button"
+              >
+                <i class="fa fa-minus" style="font-size: 24px"></i>
+              </button>
+            </div>
+            <div>
+              <span id="pricetag">Price 45$</span>
+            </div>
+          </div>
+        </div> -->
+      </ul>
+      <div style="font-weight: 800">
+        <span id="sumtotsal">TOTAL PRICE : 0$</span>
+      </div>
+      <button onclick="checkout()">Checkout</button>
+      <button onclick="closeCart()">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
