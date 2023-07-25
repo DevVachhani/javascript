@@ -1,3 +1,7 @@
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -115,6 +119,7 @@ h1 {
 #cart {
   position: fixed;
   top: 0;
+  z-index: 2;
   right: -450px;
   width: 400px;
   height: 100%;
@@ -122,13 +127,29 @@ h1 {
   padding: 20px;
   transition: right 0.3s ease-in-out;
 }
+.star {
+  display: flex;
+  justify-content: center;
+}
+.star i {
+  margin: 10px;
+  color: #ffcc00;
+}
+.star i.active {
+  color: #b9b9b9;
+}
 
 #cart.open {
   right: 0;
+  overflow: scroll;
+  margin-bottom: 20px;
 }
 
 .cartbtn button {
   font-size: x-large;
+}
+.cartbtn {
+  position: relative;
 }
 
 .maindiv {
@@ -177,10 +198,14 @@ h1 {
 }
 
 #prodnum {
-  position: relative;
+  /* position: relative;
   top: 13px;
-  right: -37px;
-  z-index: 2;
+  right: -37px; */
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  /* z-index: 2; */
+  z-index: 0;
   font-size: 12px;
   border-radius: 50%;
   background: #121212;
@@ -192,6 +217,39 @@ h1 {
   color: white;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
+}
+.searchbar {
+  text-align: center;
+  margin-top: -20px;
+  font-size: large;
+}
+
+.searchbar input {
+  width: 350px;
+  outline: 0;
+  /* width: 100%; */
+  height: 30px;
+  border-radius: 30px;
+  background-color: white;
+  padding: 0 1.6rem;
+  /* border-radius: var(--rad); */
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+.searchbar button {
+  height: 35px;
+  width: 100px;
+  /* margin-right: 20px;s */
+  border-radius: 30px;
+  background-color: #000000;
+  color: #ddd;
+}
+.searchbar button:hover {
+  background-color: rgb(153, 153, 153);
+  color: #000000;
 }
 
 button[class*="btn"] {
@@ -207,4 +265,57 @@ button[class*="btn"] {
 }
 .plus-btn img {
   margin-top: 2px;
+}
+.categorywiseproduct {
+  display: flex;
+  justify-content: center;
+}
+.categorywiseproduct span {
+  cursor: pointer;
+  margin: 20px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 30px;
+  /* margin-top: 20px; */
+  border: 2px solid black;
+}
+.categorywiseproduct span:hover {
+  background-color: #c0c0c0;
+}
+#loadMore {
+  text-align: center;
+}
+#loadMore button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+#loadMore button:hover {
+  background-color: #000000;
+  color: white;
+  /* transform: translateY(-1px); */
 }

@@ -1,6 +1,6 @@
 "use strict";
 let count = 0;
-let totalcount = 5;
+let totalcount = 4;
 let finaldata = [];
 let searchedValue;
 

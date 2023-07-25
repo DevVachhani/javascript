@@ -29,8 +29,20 @@
     <section>
       <div class="maindiv"></div>
       <div id="featuercheproducts">
+        <div class="searchbar">
+          <input id="Searchvalue" type="text" placeholder="Search.." />
+          <button value="Submit" onclick="submitvalue()">Submit</button>
+        </div>
+        <div>
+          <div class="categorywiseproduct">
+            <span onclick="seeAllProduct()">ALL Items</span>
+            <span onclick="seeElectronicsProduct()">Electronics Items</span>
+            <span onclick="seeJwelleryProduct()">Jewelery Items</span>
+          </div>
+        </div>
         <div style="padding: 30px 30px 30px 30px">
           <h3>Feachred Products</h3>
+
           <div class="featureP">
             <!-- <div class="productsItems">
             <div><span>${element.id}</span></div>
@@ -39,6 +51,9 @@
 
             <div><span>Price:${element.price} $</span></div>
           </div> -->
+          </div>
+          <div id="loadMore">
+            <button onclick="loaditems()">Load More</button>
           </div>
         </div>
       </div>
@@ -87,11 +102,16 @@
           </div>
         </div> -->
       </ul>
+
       <div style="font-weight: 800">
         <span id="sumtotsal">TOTAL PRICE : 0$</span>
       </div>
       <button onclick="checkout()">Checkout</button>
       <button onclick="closeCart()">Close</button>
+      <div>
+        <input type="text" id="coupenApplied" />
+        <button onclick="applied()">Coupen Applied</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
