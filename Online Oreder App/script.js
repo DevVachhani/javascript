@@ -1,11 +1,11 @@
 // let cartItems = [];
 let count = 0;
-let totalcount = 0;
+let totalcount = 4;
 var cartItems = [];
 var prodsdata;
-
+let unique = [];
 var sumprice = 0;
-
+// let numbers = 1;
 let price;
 
 async function fetchproducts() {
@@ -39,7 +39,7 @@ function loaditems() {
       <div class="paragrapgdiv"><p>${prodsdata[index].title}</p></div>
       
       <div class="pricespan"><span>Price:${prodsdata[index].price} $</span></div>
-      <div class="star">
+      <div class="star star${prodsdata[index].id}" >
         <i class="fa fa-star" data-rating="1"></i>
         <i class="fa fa-star" data-rating="2"></i>
         <i class="fa fa-star" data-rating="3"></i>
@@ -49,40 +49,35 @@ function loaditems() {
      <div class= "categorydata"><span>${prodsdata[index].category}</span></div>
       <div class="butndiv"> <button id="Addtocartbtn" onclick="addToCart(${prodsdata[index].id})">Add to Cart</button></div>
     </div>`;
+
       // console.log(element);
       productsdata.insertAdjacentHTML("beforeend", Html);
       // });
       count++;
+      showrating(prodsdata[index].id);
     }
   }
   totalcount += 5;
-  // const stars = document.querySelector(".star i");
-  // console.log(stars);
-  showrating();
-  // stars.forEach((star) => {});
 }
 
-function showrating() {
-  const stars = document.querySelectorAll(".star i");
-  console.log(stars);
-
+function showrating(id) {
+  // console.log(prodsdata);
   const res = prodsdata.find((items) => {
-    return items;
+    return items.id === id;
   });
   const rates = +res.rating.rate.toFixed();
-  console.log(rates);
-
-  stars.forEach((star, index1) => {
-    star.addEventListener("click", () => {
-      // console.log(index1);
-      stars.forEach((star, index2) => {
-        console.log(index2);
-        rates === index2
-          ? star.classList.add("active")
-          : star.classList.remove("active");
-      });
-    });
-  });
+  // console.log(rates);
+  const stars = document.querySelectorAll(`.star${id} i`);
+  // console.log(stars);
+  let rateCount = 0;
+  while (rateCount < 5) {
+    if (rateCount < rates) {
+      stars[rateCount].classList.add("active");
+    } else {
+      stars[rateCount].classList.remove("active");
+    }
+    rateCount++;
+  }
 }
 
 // function loadiTems(index , array)
@@ -96,6 +91,16 @@ function addToCart(productId) {
   const res = prodsdata.find((item) => {
     return item.id === productId;
   });
+  // console.log(cartItems);
+  const sameCartItem = cartItems.find((item) => {
+    return item.id === productId;
+  });
+  if (sameCartItem) {
+    IncreaseNum(productId);
+    return;
+  }
+
+  // console.log(uniqueArray);
 
   const listcartdata = document.getElementById("cart-items");
 
@@ -132,7 +137,7 @@ function addToCart(productId) {
     </div>
   </div>
 </div>`;
-
+  listcartdata.insertAdjacentHTML("beforeend", cartdata);
   res.id;
   sumprice += res.price;
   const sumpricetotal = Number(sumprice.toFixed());
@@ -140,11 +145,38 @@ function addToCart(productId) {
   // console.log(sumpricetotal);
   const totalsumprice = document.getElementById("sumtotsal");
   totalsumprice.innerHTML = `Total Price :${sumpricetotal} $ `;
-  listcartdata.insertAdjacentHTML("beforeend", cartdata);
 
   cartItems.push(res);
+  // const unique = [...new Set(cartItems)];
+  // console.log(unique);
   // console.log(cartItems);
-  // console.log(res);
+
+  // let uniqueArray = cartItems.reduce((acc, current) => {
+  //   const existingItem = acc.find((item) => item.id === current.id);
+  //   console.log(existingItem);
+  //   if (existingItem) {
+  //     // If the item already exists, update its quantity
+  //     console.log("same");
+  //     // const inputidvalye = document.getElementById(`${res.id}`);
+  //     // inputidvalye.value = numbers + 1;
+
+  //     const listcartdata = document.getElementById("cart-items");
+  //     console.log(listcartdata);
+  //     var list = document.getElementById(`cartitems${res.id}`);
+  //     console.log(list);
+  //     // list.remove();
+  //     // listcartdata.replaceWith();
+
+  //     // existingItem.quantity += current.quantity;
+  //   } else {
+  //     // If the item does not exist, add it to the accumulator array
+  //     acc.push(current);
+  //     console.log("notsame");
+  //   }
+
+  //   return acc;
+  // }, []);
+
   updatecart();
   // console.log(cartItems);
   // console.log(product);
@@ -245,19 +277,6 @@ function decreaseNum(id) {
   updatecart();
 }
 
-function applied() {
-  const coupenValue = document.getElementById("coupenApplied").value;
-  console.log(coupenValue);
-
-  if (coupenValue === "COUPEN") {
-    // console.log(sumprice);
-    alert(`after applied discount total price ${sumprice * (0.9).toFixed(2)}`);
-    const totalsumprice = document.getElementById("sumtotsal");
-    // console.log(totalsumprice);
-    totalsumprice.innerHTML = `Total price: ${sumprice * (0.9).toFixed(2)} $`;
-  }
-}
-
 function submitvalue() {
   const serachItem = document.getElementById("Searchvalue").value;
 
@@ -283,11 +302,19 @@ function submitvalue() {
   <div class="paragrapgdiv"><p>${value.title}</p></div>
   
   <div class="pricespan"><span>Price:${value.price} $</span></div>
+  <div class="star star${value.id}" >
+        <i class="fa fa-star" data-rating="1"></i>
+        <i class="fa fa-star" data-rating="2"></i>
+        <i class="fa fa-star" data-rating="3"></i>
+        <i class="fa fa-star" data-rating="4"></i>
+        <i class="fa fa-star" data-rating="5"></i>
+      </div>
  <div class= "categorydata"><span>${value.category}</span></div>
   <div class="butndiv"> <button id="Addtocartbtn" onclick="addToCart(${value.id})">Add to Cart</button></div>
 </div>`;
     // console.log(element);
     productsdata.insertAdjacentHTML("beforeend", Html);
+    showrating(value.id);
   });
 }
 
@@ -313,11 +340,19 @@ function seeElectronicsProduct() {
   <div class="paragrapgdiv"><p>${value.title}</p></div>
   
   <div class="pricespan"><span>Price:${value.price} $</span></div>
+  <div class="star star${value.id}" >
+        <i class="fa fa-star" data-rating="1"></i>
+        <i class="fa fa-star" data-rating="2"></i>
+        <i class="fa fa-star" data-rating="3"></i>
+        <i class="fa fa-star" data-rating="4"></i>
+        <i class="fa fa-star" data-rating="5"></i>
+      </div>
  <div class= "categorydata"><span>${value.category}</span></div>
   <div class="butndiv"> <button id="Addtocartbtn" onclick="addToCart(${value.id})">Add to Cart</button></div>
 </div>`;
     // console.log(element);
     productsdata.insertAdjacentHTML("beforeend", Html);
+    showrating(value.id);
   });
   console.log(fiterddata);
 }
@@ -343,11 +378,19 @@ function seeJwelleryProduct() {
   <div class="paragrapgdiv"><p>${value.title}</p></div>
   
   <div class="pricespan"><span>Price:${value.price} $</span></div>
+  <div class="star star${value.id}" >
+        <i class="fa fa-star" data-rating="1"></i>
+        <i class="fa fa-star" data-rating="2"></i>
+        <i class="fa fa-star" data-rating="3"></i>
+        <i class="fa fa-star" data-rating="4"></i>
+        <i class="fa fa-star" data-rating="5"></i>
+      </div>
  <div class= "categorydata"><span>${value.category}</span></div>
   <div class="butndiv"> <button id="Addtocartbtn" onclick="addToCart(${value.id})">Add to Cart</button></div>
 </div>`;
     // console.log(element);
     productsdata.insertAdjacentHTML("beforeend", Html);
+    showrating(value.id);
   });
   // console.log(fiterddata);
 }
@@ -371,24 +414,49 @@ function seeAllProduct() {
   <div class="paragrapgdiv"><p>${value.title}</p></div>
   
   <div class="pricespan"><span>Price:${value.price} $</span></div>
+  <div class="star star${value.id}" >
+        <i class="fa fa-star" data-rating="1"></i>
+        <i class="fa fa-star" data-rating="2"></i>
+        <i class="fa fa-star" data-rating="3"></i>
+        <i class="fa fa-star" data-rating="4"></i>
+        <i class="fa fa-star" data-rating="5"></i>
+      </div>
  <div class= "categorydata"><span>${value.category}</span></div>
   <div class="butndiv"> <button id="Addtocartbtn" onclick="addToCart(${value.id})">Add to Cart</button></div>
 </div>`;
     // console.log(element);
     productsdata.insertAdjacentHTML("beforeend", Html);
+    showrating(value.id);
   });
+}
+
+function applied() {
+  const coupenValue = document.getElementById("coupenApplied").value;
+  console.log(coupenValue);
+
+  if (coupenValue === "COUPEN") {
+    // console.log(sumprice);
+    alert(`after applied discount total price ${sumprice * (0.9).toFixed(2)}`);
+    const totalsumprice = document.getElementById("sumtotsal");
+    // console.log(totalsumprice);
+    totalsumprice.innerHTML = `Total price: ${sumprice * (0.9).toFixed(2)} $`;
+  }
 }
 
 function checkout() {
   alert("Thank you for your purchase!");
-  // const listcartdata = document.getElementById("cart-items");
-  // listcartdata.remove();
+  const listcartdata = document.getElementById("cart-items");
+  while (listcartdata.firstChild) {
+    listcartdata.lastChild.remove();
+  }
 
   const totalsumprice = document.getElementById("sumtotsal");
+  sumprice = 0;
   totalsumprice.innerHTML = `Total Price :0 $ `;
-  while (cartItems.length > 0) {
-    cartItems.pop();
-  }
+  // while (cartItems.length > 0) {
+  //   cartItems.pop();
+  // }
+  cartItems = [];
 
   console.log(cartItems);
 
