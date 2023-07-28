@@ -1,5 +1,7 @@
 :root {
   scroll-behavior: smooth;
+  --succes-color: green;
+  --error-color: red;
 }
 
 body {
@@ -91,12 +93,18 @@ h1 {
 
 .imgdiv {
   padding: 40px 40px 40px 40px;
-  width: 250px;
+  /* width: 250px; */
+  text-align: center;
+  height: 300px;
+}
+
+.mySlides img {
+  width: 100%;
   height: 300px;
 }
 
 .imgdiv img {
-  width: 100%;
+  width: 90%;
   height: 300px;
 }
 
@@ -149,18 +157,272 @@ h1 {
   font-size: x-large;
 }
 .cartbtn {
+  margin-right: 20px;
   position: relative;
 }
 
-.maindiv {
-  height: 400px;
-  background-color: aquamarine;
-  background-image: url(https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80);
+.blur-container .overlay {
+  height: 501px;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  /* background-color: #30cdc5; */
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  z-index: 0;
 }
 
-.quantity {
-  /* padding-top: 20px; */
-  /* margin-right: 60px; */
+.slider {
+  height: 40px;
+  width: 150px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    rgb(255 0 0 / 44%),
+    rgb(255, 146, 91)
+  );
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  transition: all 0.5s ease-in-out;
+}
+.orignalPrice {
+  font-size: medium;
+  margin: 5px;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.container {
+  height: 600px;
+  width: 500px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: 8px 8px 20px rgb(128, 128, 128);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-section {
+  display: flex;
+  /* justify-content: center; */
+  height: 500px;
+  /* width: 1000px; */
+  padding: 0px 0;
+  display: flex;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  left: 0px;
+}
+
+small {
+  /* margin-top: -15px; */
+  /* position: absolute; */
+  /* left: 10px; */
+  /* visibility: hidden; */
+  display: none;
+  color: var(--error-color);
+}
+.fiterbypricediv {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 50px;
+}
+
+.fiterbyprice {
+  /* border: 2px solid; */
+  border-radius: 10px;
+  display: flex;
+
+  /* background-color: #3b5b92; */
+  justify-content: center;
+}
+.description {
+  height: auto;
+  text-align: center;
+}
+
+.description img {
+  width: 70%;
+}
+.underpriceby {
+  /* margin: 30px; */
+  padding: 40px;
+}
+.form-sec {
+  display: none;
+  justify-content: center;
+}
+
+.form-section-move {
+  left: -500px;
+}
+.moveslider {
+  left: 250px;
+}
+.clkbtnSignIN {
+  height: 50px;
+  color: white;
+  width: 200px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #04aa6d, #04aa6d8c);
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
+
+.clkbtnSignUp {
+  height: 50px;
+  color: white;
+  width: 200px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #04aa6d, #04aa6d8c);
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-box,
+.signup-box {
+  height: 100%;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 35px;
+}
+.login-box {
+  gap: 40px;
+}
+
+.signup-box {
+  gap: 25px;
+}
+
+.btn {
+  height: 40px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 10px 10px 30px rgb(254, 215, 188);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-control input {
+  height: 60px;
+  width: 400px;
+  outline: none;
+  /* border: none; */
+  color: rgb(77, 77, 77);
+  background-color: rgb(240, 240, 240);
+  border-radius: 50px;
+  padding-left: 30px;
+  font-size: 18px;
+}
+
+.form-control.error input {
+  border-color: var(--error-color);
+}
+.form-control.success input {
+  border-color: var(--succes-color);
+}
+
+.login,
+.logout {
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+}
+.userWelcome {
+  height: 30px;
+  display: none;
+  /* font-size: medium; */
+  /* background-color: #d0d0d0; */
+}
+#userName {
+  /* padding: 30px 40px 30px 40px; */
+  padding: 10px;
+  /* font-size: xx-large; */
+  /* font-weight: 700; */
+  margin: 0;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  height: 400px;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.dotclass {
+  height: 40px;
+  /* background-color: #8bc34a; */
+  margin-top: -40px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #717171;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active {
+  background-color: #e00000;
+}
+
+.button_zone {
+  display: flex;
+  align-items: center;
+}
+
+button#signIn {
+  padding: 10px 25px;
+  font-size: large;
+  border-radius: 5px;
+  background: #04aa6d;
+  border: #04aa6d;
+  color: #fff;
+  margin: 10px;
+}
+button#signIn:hover {
+  background: #fff;
+  color: #8bc34a;
+
+  box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.26);
+  transform: scale(1.1);
+}
+
+button#signOut {
+  display: none;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px 25px;
+  font-size: large;
+  border: #f44336;
+  background: #f44336;
+  color: #fff;
+}
+button#signOut:hover {
+  background: #fff;
+  color: #f44336;
+  box-shadow: 10px 10px 24px 0px rgba(0, 0, 0, 0.26);
+  transform: scale(1.1);
 }
 .quantity input {
   -webkit-appearance: none;
@@ -181,6 +443,61 @@ h1 {
 #cart-items {
   width: 384px;
   padding: 0;
+}
+
+#cart button {
+  background-image: linear-gradient(#392839, #3b5b92);
+  border: 0;
+  height: 30px;
+  width: auto;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9em;
+  margin: 5px;
+  /* padding: 8px 15px; */
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.Items div {
+  font-weight: 500;
+}
+
+#cart div input {
+  /* width: 200px; */
+  height: 20px;
+}
+
+.quantity button {
+  background-image: linear-gradient(#f7f8fa, #e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
 }
 
 .itemsDes {
@@ -225,10 +542,10 @@ h1 {
 }
 
 .searchbar input {
-  width: 350px;
+  width: 365px;
   outline: 0;
   /* width: 100%; */
-  height: 30px;
+  height: 47px;
   border-radius: 30px;
   background-color: white;
   padding: 0 1.6rem;
@@ -240,12 +557,12 @@ h1 {
   position: relative;
 }
 .searchbar button {
-  height: 33px;
+  height: 49px;
   position: absolute;
-  width: 50px;
+  width: 62px;
   /* right: -30px; */
   z-index: 2;
-  margin-left: -51px;
+  margin-left: -61px;
   /* margin-right: 20px;s */
   border-radius: 30px;
   background-color: #000000;
@@ -256,14 +573,14 @@ h1 {
   color: #000000;
 }
 
-button[class*="btn"] {
+/* button[class*="btn"] {
   width: 30px;
   height: 30px;
   background-color: #e1e8ee;
   border-radius: 6px;
   border: none;
   cursor: pointer;
-}
+} */
 .minus-btn img {
   margin-bottom: 3px;
 }
@@ -278,9 +595,11 @@ button[class*="btn"] {
   cursor: pointer;
   margin: 20px;
   padding: 10px 10px 10px 10px;
-  border-radius: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   /* margin-top: 20px; */
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 .categorywiseproduct span:hover {
   background-color: #c0c0c0;

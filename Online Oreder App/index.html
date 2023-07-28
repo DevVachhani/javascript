@@ -14,55 +14,208 @@
   </head>
   <body>
     <header>
-      <h1>My E-Commerce Store</h1>
-      <div class="cartbtn">
-        <button id="cart-button" onclick="openCart()">
-          CART
-          <span id="prodnum">0</span>
-          <i
-            class="fa fa-shopping-cart"
-            style="font-size: 38px; color: red"
-          ></i>
-        </button>
+      <div>
+        <h1>My E-Commerce Store</h1>
+        <div class="userWelcome">
+          <h2 id="userName">Welcome User</h2>
+        </div>
+      </div>
+      <div class="button_zone">
+        <div class="cartbtn">
+          <button id="cart-button" onclick="openCart()">
+            CART
+            <span id="prodnum">0</span>
+            <i
+              class="fa fa-shopping-cart"
+              style="font-size: 38px; color: red"
+            ></i>
+          </button>
+        </div>
+        <button id="signIn" onclick="login()">Sign In</button>
+        <button id="signOut" onclick="logout()">Logout</button>
+        <!-- <p class="button_par"></p> -->
       </div>
     </header>
     <section>
-      <div class="maindiv"></div>
-      <div id="featuercheproducts">
-        <div class="searchbar">
-          <input id="Searchvalue" type="text" placeholder="Search.." />
-          <button type="submit" onclick="submitvalue()">
-            <i class="fa fa-search"></i>
-          </button>
-          <!-- <button value="Submit" onclick="submitvalue()">Submit</button> -->
-        </div>
-        <div>
-          <div class="categorywiseproduct">
-            <span onclick="seeAllProduct()">ALL Items</span>
-            <span onclick="seeElectronicsProduct()">Electronics Items</span>
-            <span onclick="seeJwelleryProduct()">Jewelery Items</span>
+      <div class="blur-container">
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img
+              src="https://assets.tatacliq.com/medias/sys_master/images/47908148412446.png"
+              style="width: 100%"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://assets.tatacliq.com/medias/sys_master/images/47773123411998.jpg"
+              style="width: 100%"
+            />
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="https://assets.tatacliq.com/medias/sys_master/images/47914893049886.jpg"
+              style="width: 100%"
+            />
+          </div>
+          <div class="mySlides fade">
+            <img
+              src="https://assets.tatacliq.com/medias/sys_master/images/47897401196574.jpg"
+              style="width: 100%"
+            />
           </div>
         </div>
-        <div style="padding: 30px 30px 30px 30px">
-          <h3>Feachred Products</h3>
 
-          <div class="featureP">
-            <!-- <div class="productsItems">
+        <div class="dotclass" style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+
+        <div id="featuercheproducts">
+          <div class="searchbar">
+            <input id="Searchvalue" type="text" placeholder="Search.." />
+            <button type="submit" onclick="submitvalue()">
+              <i class="fa fa-search"></i>
+            </button>
+            <!-- <button value="Submit" onclick="submitvalue()">Submit</button> -->
+          </div>
+          <div>
+            <div class="categorywiseproduct">
+              <span onclick="seeAllProduct()">ALL Items</span>
+              <span onclick="seeElectronicsProduct()">Electronics Items</span>
+              <span onclick="seeJwelleryProduct()">Jewelery Items</span>
+            </div>
+          </div>
+          <div style="padding: 30px 30px 30px 30px">
+            <h3>Feachred Products</h3>
+
+            <div class="featureP">
+              <!-- <div class="productsItems">
             <div><span>${element.id}</span></div>
             <div><img src="${element.image}" alt="fetcherp1" /></div>
             <div><p>${element.title}</p></div>
 
             <div><span>Price:${element.price} $</span></div>
           </div> -->
-          </div>
-          <div id="loadMore">
-            <button onclick="loaditems()">Load More</button>
+            </div>
+            <div id="loadMore">
+              <button onclick="loaditems()">Load More</button>
+            </div>
+
+            <div class="fiterbypricediv">
+              <div class="headingproducts">
+                <h3>Budget Wise Products</h3>
+              </div>
+              <div class="fiterbyprice">
+                <div class="underpriceby">
+                  <div class="description" onclick="underprice99()">
+                    <img
+                      src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar1.jpg"
+                    />
+                  </div>
+                </div>
+                <div class="underpriceby">
+                  <div class="description" onclick="underprice399()">
+                    <img
+                      src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar3.jpg"
+                    />
+                  </div>
+                </div>
+                <div class="underpriceby">
+                  <div class="description" onclick="underprice799()">
+                    <img
+                      src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar5.jpg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <section class="form-sec">
+      <div class="container">
+        <div class="slider"></div>
+        <div class="btn">
+          <button class="login">Login</button>
+          <button class="logout">Signup</button>
+        </div>
+        <div class="form-section">
+          <div class="login-box">
+            <div class="form-control">
+              <input
+                type="email"
+                id="username"
+                class="ele"
+                placeholder="youremail@email.com"
+              />
+              <small>Error Message</small>
+            </div>
+            <div class="form-control">
+              <input
+                type="password"
+                id="password"
+                class="ele"
+                placeholder="password"
+              />
+              <small>Error Message</small>
+            </div>
+            <button class="clkbtnSignIN" onclick="formsubmit()">Login</button>
+            <span
+              ><a class="newusertoDownload" href="#"
+                >New Here? Please Register</a
+              ></span
+            >
+          </div>
+          <div class="signup-box">
+            <div class="form-control">
+              <input
+                type="text"
+                id="userNamevalue"
+                placeholder="Enter your name"
+              />
+              <small>Error Message</small>
+            </div>
+            <div class="form-control">
+              <input
+                type="email"
+                id="userEmailvalue"
+                class="email ele"
+                placeholder="youremail@email.com"
+              />
+              <small>Error Message</small>
+            </div>
 
-    <div id="product-container"></div>
+            <div class="form-control">
+              <input
+                type="password"
+                id="userPasswordvalue"
+                class="password ele"
+                placeholder="password"
+              />
+              <small>Error Message</small>
+            </div>
+
+            <div class="form-control">
+              <input
+                type="password"
+                id="confirmPasswordvalue"
+                class="cnpassword ele"
+                placeholder="Confirm password"
+              />
+              <small>Error Message</small>
+            </div>
+            <button class="clkbtnSignUp" onclick="signUpdataForm()">
+              Signup
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div id="cart">
       <div>
