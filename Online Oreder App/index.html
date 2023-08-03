@@ -13,218 +13,410 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <header>
-      <div>
-        <h1>My E-Commerce Store</h1>
-        <div class="userWelcome">
-          <h2 id="userName">Welcome User</h2>
-        </div>
-      </div>
-      <div class="button_zone">
-        <div class="cartbtn">
-          <button id="cart-button" onclick="openCart()">
-            CART
-            <span id="prodnum">0</span>
-            <i
-              class="fa fa-shopping-cart"
-              style="font-size: 38px; color: red"
-            ></i>
-          </button>
-        </div>
-        <button id="signIn" onclick="login()">Sign In</button>
-        <button id="signOut" onclick="logout()">Logout</button>
-        <!-- <p class="button_par"></p> -->
-      </div>
-    </header>
-    <section>
-      <div class="blur-container">
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <img
-              src="https://assets.tatacliq.com/medias/sys_master/images/47908148412446.png"
-              style="width: 100%"
-            />
-          </div>
-
-          <div class="mySlides fade">
-            <img
-              src="https://assets.tatacliq.com/medias/sys_master/images/47773123411998.jpg"
-              style="width: 100%"
-            />
-          </div>
-
-          <div class="mySlides fade">
-            <img
-              src="https://assets.tatacliq.com/medias/sys_master/images/47914893049886.jpg"
-              style="width: 100%"
-            />
-          </div>
-          <div class="mySlides fade">
-            <img
-              src="https://assets.tatacliq.com/medias/sys_master/images/47897401196574.jpg"
-              style="width: 100%"
-            />
+    <div>
+      <header>
+        <div>
+          <h1>My E-Commerce Store</h1>
+          <div class="userWelcome">
+            <h2 id="userName">Welcome User</h2>
           </div>
         </div>
-
-        <div class="dotclass" style="text-align: center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
+        <div class="homepage">
+          <a href="index.html">Home</a>
         </div>
-
-        <div id="featuercheproducts">
-          <div class="searchbar">
-            <input id="Searchvalue" type="text" placeholder="Search.." />
-            <button type="submit" onclick="submitvalue()">
-              <i class="fa fa-search"></i>
+        <div class="button_zone">
+          <div class="cartbtn">
+            <button id="cart-button" onclick="openCart()">
+              CART
+              <span id="prodnum">0</span>
+              <i
+                class="fa fa-shopping-cart"
+                style="font-size: 38px; color: red"
+              ></i>
             </button>
-            <!-- <button value="Submit" onclick="submitvalue()">Submit</button> -->
           </div>
-          <div>
-            <div class="categorywiseproduct">
-              <span onclick="seeAllProduct()">ALL Items</span>
-              <span onclick="seeElectronicsProduct()">Electronics Items</span>
-              <span onclick="seeJwelleryProduct()">Jewelery Items</span>
+          <button id="signIn" onclick="login()">Sign In</button>
+          <button id="signOut" onclick="logout()">Logout</button>
+          <!-- <p class="button_par"></p> -->
+        </div>
+      </header>
+      <div class="checkoutdiv">
+        <div class="parent">
+          <div class="child1">
+            <div>
+              <h3>Dilvery Information</h3>
+            </div>
+            <form id="deliveryForm">
+              <div class="form__group field">
+                <input
+                  type="input"
+                  class="form__field"
+                  placeholder="Name"
+                  id="formusername"
+                  required
+                />
+                <label for="name" class="form__label">Name</label>
+              </div>
+              <div class="form__group field">
+                <input
+                  type="input"
+                  class="form__field"
+                  placeholder="address"
+                  id="formuseraddress"
+                  required
+                />
+                <label class="form__label">Address</label>
+              </div>
+              <div class="form__group field">
+                <input
+                  type="input"
+                  class="form__field"
+                  placeholder="Mobile No"
+                  id="mobile-num"
+                  required
+                />
+                <label class="form__label">Mobile Number</label>
+              </div>
+              <div class="form__group field">
+                <input
+                  type="input"
+                  class="form__field"
+                  placeholder="city"
+                  id="city"
+                  required
+                />
+                <label class="form__label">City</label>
+              </div>
+              <div class="form__group field">
+                <input
+                  type="input"
+                  class="form__field"
+                  placeholder="city"
+                  id="pincode"
+                  required
+                />
+                <label class="form__label">Pin Code</label>
+              </div>
+              <div class="saveDetails">
+                <button onclick="saveFormdeatils(event)">Save Details</button>
+              </div>
+            </form>
+
+            <div class="paymentMethod">
+              <h3>Payment Methods</h3>
+              <div class="methods">
+                <label class="methods">
+                  <input
+                    class="methods-input"
+                    name="option"
+                    type="radio"
+                    value="offline"
+                    onclick="showHideDiv(this)"
+                  />
+                  Cash On Delivery
+                </label>
+
+                <label class="methods">
+                  <input
+                    class="methods-input"
+                    name="option"
+                    type="radio"
+                    value="online"
+                    onclick="showHideDiv(this)"
+                  />
+                  Online Payment
+                </label>
+              </div>
+            </div>
+            <div style="margin-top: -10px">
+              <h3>Payment Detials</h3>
+              <div class="payment-option">
+                <!-- <input type="radio" id="creditCard" name="paymentMethod" value="credit-card" required> -->
+
+                <div class="credit-card-fields" style="display: none">
+                  <div>
+                    <label for="cardNumber" class="payment__label"
+                      >Card Number</label
+                    >
+                    <input
+                      type="input"
+                      class="payment__field"
+                      placeholder="cardNumber"
+                      id="cardNumber"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="payment__label">Expiration Date</label>
+                    <input
+                      type="input"
+                      class="payment__field"
+                      placeholder="MM"
+                      id="monthcreditcard"
+                      pattern="\\d*"
+                      minlength="2"
+                      maxlength="2"
+                      required=""
+                    />
+                    <input
+                      type="input"
+                      class="payment__field"
+                      placeholder="YY"
+                      pattern="\\d*"
+                      id="yearcreaditcard"
+                      minlength="2"
+                      maxlength="2"
+                      required=""
+                    />
+                  </div>
+                  <div>
+                    <label class="payment__label" for="cardNumber"
+                      >CVV Number:</label
+                    >
+                    <input
+                      type="text"
+                      class="payment__field"
+                      placeholder="CVV"
+                      id="cvvnum"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="saveDetails">
+                  <button
+                    type="submit"
+                    id="finaldataSubmit"
+                    onclick="finaldatasubmission(event)"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div style="padding: 30px 30px 30px 30px">
-            <h3>Feachred Products</h3>
 
-            <div class="featureP">
-              <!-- <div class="productsItems">
+          <div class="child2">
+            <h3>Order Summery</h3>
+
+            <div id="order-Items"></div>
+            <div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-end;
+                  padding: 20px;
+                "
+              >
+                <span id="shipingprice">SHIPPING PRICE : 20 $</span>
+                <span id="sumsumrry">TOTAL PRICE : 0$</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="thnak-content">
+          <div style="padding: 30px 30px 30px 30px">
+            <div><h3>Thank You</h3></div>
+            <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+            <p class="main-content__body" data-lead-id="main-content-body">
+              Thanks a bunch for filling that out. It means a lot to us, just
+              like you do! We really appreciate you giving us a moment of your
+              time today. Thanks for being you.
+            </p>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div class="blur-container">
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img
+                src="https://assets.tatacliq.com/medias/sys_master/images/47908148412446.png"
+                style="width: 100%"
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <img
+                src="https://assets.tatacliq.com/medias/sys_master/images/47773123411998.jpg"
+                style="width: 100%"
+              />
+            </div>
+
+            <div class="mySlides fade">
+              <img
+                src="https://assets.tatacliq.com/medias/sys_master/images/47914893049886.jpg"
+                style="width: 100%"
+              />
+            </div>
+            <div class="mySlides fade">
+              <img
+                src="https://assets.tatacliq.com/medias/sys_master/images/47897401196574.jpg"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+
+          <div class="dotclass" style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+          </div>
+
+          <div id="featuercheproducts">
+            <div class="searchbar">
+              <input id="Searchvalue" type="text" placeholder="Search.." />
+              <button type="submit" onclick="submitvalue()">
+                <i class="fa fa-search"></i>
+              </button>
+              <!-- <button value="Submit" onclick="submitvalue()">Submit</button> -->
+            </div>
+            <div>
+              <div class="categorywiseproduct">
+                <span onclick="seeAllProduct()">ALL Items</span>
+                <span onclick="seeElectronicsProduct()">Electronics Items</span>
+                <span onclick="seeJwelleryProduct()">Jewelery Items</span>
+              </div>
+            </div>
+            <div style="padding: 30px 30px 30px 30px">
+              <h3>Feachred Products</h3>
+
+              <div class="featureP">
+                <!-- <div class="productsItems">
             <div><span>${element.id}</span></div>
             <div><img src="${element.image}" alt="fetcherp1" /></div>
             <div><p>${element.title}</p></div>
 
             <div><span>Price:${element.price} $</span></div>
           </div> -->
-            </div>
-            <div id="loadMore">
-              <button onclick="loaditems()">Load More</button>
-            </div>
-
-            <div class="fiterbypricediv">
-              <div class="headingproducts">
-                <h3>Budget Wise Products</h3>
               </div>
-              <div class="fiterbyprice">
-                <div class="underpriceby">
-                  <div class="description" onclick="underprice99()">
-                    <img
-                      src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar1.jpg"
-                    />
-                  </div>
+              <div id="loadMore">
+                <button onclick="loaditems()">Load More</button>
+              </div>
+
+              <div class="fiterbypricediv">
+                <div class="headingproducts">
+                  <h3>Budget Wise Products</h3>
                 </div>
-                <div class="underpriceby">
-                  <div class="description" onclick="underprice399()">
-                    <img
-                      src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar3.jpg"
-                    />
+                <div class="fiterbyprice">
+                  <div class="underpriceby">
+                    <div class="description" onclick="underprice99()">
+                      <img
+                        src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar1.jpg"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="underpriceby">
-                  <div class="description" onclick="underprice799()">
-                    <img
-                      src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar5.jpg"
-                    />
+                  <div class="underpriceby">
+                    <div class="description" onclick="underprice399()">
+                      <img
+                        src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar3.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div class="underpriceby">
+                    <div class="description" onclick="underprice799()">
+                      <img
+                        src="https://cdn.shopclues.com/images/banners/2023/June/08/08June_SrushtyBudget_bazzar5.jpg"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="form-sec">
-      <div class="container">
-        <div class="slider"></div>
-        <div class="btn">
-          <button class="login">Login</button>
-          <button class="logout">Signup</button>
-        </div>
-        <div class="form-section">
-          <div class="login-box">
-            <div class="form-control">
-              <input
-                type="email"
-                id="username"
-                class="ele"
-                placeholder="youremail@email.com"
-              />
-              <small>Error Message</small>
-            </div>
-            <div class="form-control">
-              <input
-                type="password"
-                id="password"
-                class="ele"
-                placeholder="password"
-              />
-              <small>Error Message</small>
-            </div>
-            <button class="clkbtnSignIN" onclick="formsubmit()">Login</button>
-            <span
-              ><a class="newusertoDownload" href="#"
-                >New Here? Please Register</a
-              ></span
-            >
+      </section>
+      <section class="form-sec">
+        <div class="container">
+          <div class="slider"></div>
+          <div class="btn">
+            <button class="login">Login</button>
+            <button class="logout">Signup</button>
           </div>
-          <div class="signup-box">
-            <div class="form-control">
-              <input
-                type="text"
-                id="userNamevalue"
-                placeholder="Enter your name"
-              />
-              <small>Error Message</small>
+          <div class="form-section">
+            <div class="login-box">
+              <div class="form-control">
+                <input
+                  type="email"
+                  id="username"
+                  class="ele"
+                  placeholder="youremail@email.com"
+                />
+                <small>Error Message</small>
+              </div>
+              <div class="form-control">
+                <input
+                  type="password"
+                  id="password"
+                  class="ele"
+                  placeholder="password"
+                />
+                <small>Error Message</small>
+              </div>
+              <button class="clkbtnSignIN" onclick="logintotheWebsite()">
+                Login
+              </button>
+              <span
+                ><a class="newusertoDownload" href="#"
+                  >New Here? Please Register</a
+                ></span
+              >
             </div>
-            <div class="form-control">
-              <input
-                type="email"
-                id="userEmailvalue"
-                class="email ele"
-                placeholder="youremail@email.com"
-              />
-              <small>Error Message</small>
-            </div>
+            <div class="signup-box">
+              <form id="userForm" onsubmit="singupformdata(event)">
+                <div class="form-control">
+                  <input
+                    type="text"
+                    id="userNamevalue"
+                    placeholder="Enter your name"
+                  />
+                  <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                  <input
+                    type="email"
+                    id="userEmailvalue"
+                    class="email ele"
+                    placeholder="youremail@email.com"
+                  />
+                  <small>Error Message</small>
+                </div>
 
-            <div class="form-control">
-              <input
-                type="password"
-                id="userPasswordvalue"
-                class="password ele"
-                placeholder="password"
-              />
-              <small>Error Message</small>
-            </div>
+                <div class="form-control">
+                  <input
+                    type="password"
+                    id="userPasswordvalue"
+                    class="password ele"
+                    placeholder="password"
+                  />
+                  <small>Error Message</small>
+                </div>
 
-            <div class="form-control">
-              <input
-                type="password"
-                id="confirmPasswordvalue"
-                class="cnpassword ele"
-                placeholder="Confirm password"
-              />
-              <small>Error Message</small>
+                <div class="form-control">
+                  <input
+                    type="password"
+                    id="confirmPasswordvalue"
+                    class="cnpassword ele"
+                    placeholder="Confirm password"
+                  />
+                  <small>Error Message</small>
+                </div>
+                <button class="clkbtnSignUp" type="submit">Signup</button>
+              </form>
             </div>
-            <button class="clkbtnSignUp" onclick="signUpdataForm()">
-              Signup
-            </button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div id="cart">
-      <div>
-        <h2>Cart</h2>
+      <div id="cart">
+        <div>
+          <h2>Cart</h2>
 
-        <div class="cartProducts"></div>
-      </div>
-      <ul id="cart-items">
-        <!-- <div class="cartitems">
+          <div class="cartProducts"></div>
+        </div>
+        <ul id="cart-items">
+          <!-- <div class="cartitems">
           <div class="Items">
             <div class="itemsDes">
               <img
@@ -257,17 +449,71 @@
             </div>
           </div>
         </div> -->
-      </ul>
+        </ul>
 
-      <div style="font-weight: 800">
-        <span id="sumtotsal">TOTAL PRICE : 0$</span>
+        <div style="font-weight: 800">
+          <span id="sumtotsal">TOTAL PRICE : 0$</span>
+        </div>
+        <!-- <a style="text-decoration: none; color: white" href="index2.html"> -->
+        <button onclick="checkout(event)">Checkout</button>
+        <!-- </a> -->
+        <button onclick="closeCart()">Close</button>
+        <div>
+          <input type="text" id="coupenApplied" />
+          <button onclick="applied()">Coupen Applied</button>
+        </div>
       </div>
-      <button onclick="checkout()">Checkout</button>
-      <button onclick="closeCart()">Close</button>
-      <div>
-        <input type="text" id="coupenApplied" />
-        <button onclick="applied()">Coupen Applied</button>
-      </div>
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <p>We create posssiblities for the coonected world.</p>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Meet the Team</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#">Electronics</a></li>
+              <li><a href="#">Fashion</a></li>
+              <li><a href="#">Home &amp; Living</a></li>
+              <li><a href="#">Toys &amp; Games</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Customer Service</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping &amp; Returns</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Connect with Us</h3>
+            <ul class="social-media-icons">
+              <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Your E-commerce Website. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
 
     <script src="script.js"></script>
